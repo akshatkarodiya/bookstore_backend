@@ -1,0 +1,51 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: "stage"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "stage"
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root@123
+    url: jdbc:mysql://mysql-service:3306/bookStore
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root@123
+    url: jdbc:mysql://mysql-service:3306/bookStore
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root@123
+    url: jdbc:mysql://localhost:3306/bookStore
+    username: akshat
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
